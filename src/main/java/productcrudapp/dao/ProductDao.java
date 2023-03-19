@@ -23,23 +23,22 @@ public class ProductDao {
 		this.hibernateTemplate.saveOrUpdate(product);		
 	}
 	
-	//get all product
-	public List<Product> getProducts(){
-		List<Product> products = this.hibernateTemplate.loadAll(Product.class);
-		return products;
-	}
-	
 	//delete the single product
-	@Transactional
-	public void deleteProduct(int pid) {
-		Product p = this.hibernateTemplate.load(Product.class, pid);
-		this.hibernateTemplate.delete(p);
-	}
+		@Transactional
+		public void deleteProduct(int pid) {
+			Product p = this.hibernateTemplate.load(Product.class, pid);
+			this.hibernateTemplate.delete(p);
+		}
 	
 	//get the single product
 	public Product getProduct(int pid) {
 		return this.hibernateTemplate.get(Product.class, pid);
 	}
 	
+	//get all product
+		public List<Product> getProducts(){
+			List<Product> products = this.hibernateTemplate.loadAll(Product.class);
+			return products;
+		}
 
 }
